@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/index.css" />
+  <script defer src="../scripts/index.js"></script>
+  <title>Sign In</title>
+</head>
+<body>
+  <main id="page-main" class="bg-yellow-200 pr-20 max-md:pr-5 text-yellow-200">
+
+    <!-- Hanging Nav -->
+    <div  class="absolute mx-auto left-0 right-0 top-10 z-[1] w-[90%] justify-between items-center flex  gap-5 max-md:max-w-full max-md:flex-wrap">
+      <div class="flex gap-2 my-auto items-start">
+        <img
+          loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/261a52eae131f2a6c78f8ef8815675bc5e4222bbe648c881a7374603deee4441?apiKey=0ce679486ae447bd8ce08b2cc2263e2e&"
+          class="aspect-square object-contain object-center w-[30px] overflow-hidden shrink-0 max-w-full"
+        />
+        <a href="./index.html" class="text-violet-900 lg:text-white text-3xl font-bold tracking-tight self-stretch grow whitespace-nowrap" >
+          reedr
+        </a>
+      </div>
+      <div class="items-stretch relative self-stretch flex justify-between gap-2">
+        
+        <button onclick="toggleSettings()" class="">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/beb98f84ea97c29d34b34345a2bb71728fe924197bd7b714e72a88cfa5aa0318?apiKey=0ce679486ae447bd8ce08b2cc2263e2e&"
+            class="aspect-square object-contain object-center w-12 stroke-[1px] stroke-violet-950 overflow-hidden shrink-0 max-w-full"
+          />
+        </button>
+
+        <!-- Settings Modal -->
+        <div  id="settingsModal" class="absolute sign-in-settingsModal border hidden border-yellow-200 right-0 top-16 bg-primary-blue px-20 py-10 max-md:px-5">
+          <div class="gap-5  flex max-md:flex-col max-md:items-stretch max-md:gap-0">
+            <div class="flex flex-col items-stretch max-md:w-full max-md:ml-0">
+  
+            </div>
+            <div class="flex flex-col items-stretch ml-5 max-md:w-full max-md:ml-0">
+              <div class="mt-2.5 max-md:max-w-full max-md:mt-10">
+                <div class="gap-5 flex max-md:flex-col max-md:items-stretch max-md:gap-0">
+                  
+                  <div class="flex flex-col items-stretch ml-5 max-md:w-full max-md:ml-0">
+                    <div class="flex grow flex-col items-start max-md:mt-10">
+                      <p class="text-cyan-400 text-base tracking-tight self-stretch ">
+                        Color Scheme
+                      </p>
+                      <div class="items-stretch self-stretch flex justify-between gap-5 mt-6 pr-12 max-md:pr-5" >
+                        <button onclick="togglePageColor('#000','rgb(251 207 232)','#02FFFF')" class="color-changer bg-pink-200 flex aspect-square flex-col justify-center items-center w-10 h-10 pr-6 border-2 border-solid border-white max-md:pr-5">
+                          <div class="bg-black flex shrink-0 h-10 flex-col border-2 border-solid border-white"></div>
+                        </button>
+                        <button onclick="togglePageColor('#083933','#FF8073','#02FFFF')" class="color-changer bg-red-400 flex aspect-square flex-col justify-center items-center w-10 h-10 pr-6 border-2 border-solid border-white max-md:pr-5">
+                          <div class="bg-teal-950 flex shrink-0 h-10 flex-col border-2 border-solid border-white"></div>
+                        </button>
+                        <button onclick="togglePageColor('rgb(254 240 138)','#120C8A')" class="color-changer bg-blue-400 flex aspect-square flex-col justify-center items-center w-10 h-10 pr-6 border-2 border-solid border-white max-md:pr-5">
+                          <div  class="bg-primary-blue flex shrink-0 h-10 flex-col border-2 border-solid border-white"></div>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="gap-5 max-md:flex-col h-screen w-screen grid grid-cols-[8fr_9fr] max-lg:grid-cols-1 max-md:items-stretch max-md:gap-0">
+      <div class="max-lg:hidden flex flex-col items-stretch max-md:w-full max-md:ml-0">
+        <div class="flex-col overflow-hidden relative flex min-h-[1204px] grow pt-8 items-end max-md:max-w-full max-md:mt-10">
+          <img
+            loading="lazy"
+            srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/736b2aef6c262247b335898a6694109cf3fe95c130d6ce1db869aebd09e800a6?apiKey=0ce679486ae447bd8ce08b2cc2263e2e&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/736b2aef6c262247b335898a6694109cf3fe95c130d6ce1db869aebd09e800a6?apiKey=0ce679486ae447bd8ce08b2cc2263e2e&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/736b2aef6c262247b335898a6694109cf3fe95c130d6ce1db869aebd09e800a6?apiKey=0ce679486ae447bd8ce08b2cc2263e2e&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/736b2aef6c262247b335898a6694109cf3fe95c130d6ce1db869aebd09e800a6?apiKey=0ce679486ae447bd8ce08b2cc2263e2e&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/736b2aef6c262247b335898a6694109cf3fe95c130d6ce1db869aebd09e800a6?apiKey=0ce679486ae447bd8ce08b2cc2263e2e&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/736b2aef6c262247b335898a6694109cf3fe95c130d6ce1db869aebd09e800a6?apiKey=0ce679486ae447bd8ce08b2cc2263e2e&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/736b2aef6c262247b335898a6694109cf3fe95c130d6ce1db869aebd09e800a6?apiKey=0ce679486ae447bd8ce08b2cc2263e2e&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/736b2aef6c262247b335898a6694109cf3fe95c130d6ce1db869aebd09e800a6?apiKey=0ce679486ae447bd8ce08b2cc2263e2e&"
+            class="absolute top-0 h-full w-full object-cover object-top inset-0"
+          />
+          
+          <div id="foot-banner" class="relative mt-auto bg-primary-blue flex w-full flex-col justify-center items-center px-16 py-6 self-start max-md:max-w-full max-md:mt-10 max-md:px-5">
+            <div
+              class="justify-between items-stretch flex w-full max-w-[1214px] gap-5 max-md:max-w-full max-md:flex-wrap"
+            >
+              <div class="items-stretch flex flex-col max-md:max-w-full">
+                <div class=" text-sm max-md:max-w-full">
+                  <span class="font-bold">©REEDR 2023</span>
+                  <!-- <span class="">is a tool built by John Doe</span> -->
+                </div>
+                <div
+                  class=" text-sm leading-6 mt-1 max-md:max-w-full"
+                >
+                  Reedr is an online reading and study aid targeted at helping
+                  people with learning disabilities study better
+                </div>
+              </div>
+              <div class="items-stretch self-center flex gap-2 my-auto">
+                <img
+                  loading="lazy"
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/3102ffc2584dbce5203de3512115e54cb044d2912c83057de418c98d0aa6b327?apiKey=0ce679486ae447bd8ce08b2cc2263e2e&"
+                  class="aspect-square object-contain object-center w-[30px] overflow-hidden shrink-0 max-w-full"
+                />
+                <img
+                  loading="lazy"
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/e049939c298b693d11529b5ffe14a2cfe945f0e96304bcda1874a1e10fffe2b2?apiKey=0ce679486ae447bd8ce08b2cc2263e2e&"
+                  class="aspect-[3.25] object-contain object-center w-[65px] fill-white overflow-hidden self-center shrink-0 max-w-full my-auto"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page Right Section -->
+      <div  class="flex flex-col w-full mx-auto items-stretch max-w-xl pr-4">
+        <div class="flex flex-col items-stretch my-auto max-md:max-w-full">
+          <div class=" text-sm toggle-inverse whitespace-nowrap justify-center items-center  bg-primary-blue px-16 py-6 border-solid max-md:max-w-full max-md:px-5">
+            <span class="">You successfully Signed Up,</span>
+            <span class="font-bold">Kindly Proceed to Log in</span>
+          </div>
+          <div class="items-center toggle-inverse  bg-primary-blue flex flex-col mt-7 px-20 py-11 border-solid max-md:max-w-full max-md:px-5">
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/2d29d07dd456424eed10d8ed7dde74dfa974ecd2289e610fbc19acba04b4857e?apiKey=0ce679486ae447bd8ce08b2cc2263e2e&"
+              class="aspect-square object-contain object-center w-8 overflow-hidden self-center max-w-full mt-3.5"
+            />
+            <div class=" text-center text-3xl font-bold tracking-tighter self-center whitespace-nowrap mt-6">
+              Sign In
+            </div>
+            <div class="items-stretch self-stretch flex justify-between gap-0 mt-16 max-md:mt-10">
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/4599a1a361c7fd87bc4dc0283c0f7f203c4077d238cf46bcbfd2b733e37e1f1c?apiKey=0ce679486ae447bd8ce08b2cc2263e2e&"
+                class="aspect-square object-contain object-center w-14 stroke-[1px] stroke-yellow-200 overflow-hidden shrink-0 max-w-full"
+              />
+              <input type="email" placeholder="Enter Email" class=" bg-transparent text-base font-bold tracking-tight whitespace-nowrap border border-l-0 border-[color:var(--Secondary,#FFF3AB)] grow justify-center outline-none pl-6 pr-16 py-3 border-solid items-start max-md:px-5">
+            </div>
+            <div class="items-stretch self-stretch flex justify-between gap-0 mt-3.5">
+              <img
+                loading="lazy"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/4599a1a361c7fd87bc4dc0283c0f7f203c4077d238cf46bcbfd2b733e37e1f1c?apiKey=0ce679486ae447bd8ce08b2cc2263e2e&"
+                class="aspect-square object-contain object-center w-14 stroke-[1px] stroke-yellow-200 overflow-hidden shrink-0 max-w-full"
+              />
+              <input type="password" placeholder="Enter Password" class=" bg-transparent text-base font-bold tracking-tight whitespace-nowrap border border-l-0 border-[color:var(--Secondary,#FFF3AB)] grow justify-center outline-none pl-6 pr-16 py-3 border-solid items-start max-md:px-5">
+            </div>
+            <a id="confirm-nd-proceed" href="./app.html" class="text-violet-950 text-2xl font-bold tracking-tight whitespace-nowrap justify-center items-stretch  bg-yellow-200 self-center mt-16 px-11 py-4 border-solid max-md:mt-10 max-md:px-5">
+              Confirm and Proceed
+            </a>
+            <div
+              class=" text-sm font-bold self-center whitespace-nowrap mt-16 max-md:mt-10"
+            >
+              <span class="">New User?</span>
+              <span class="font-bold">Sign Up here</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+</body>
+</html>

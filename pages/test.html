@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Your Website</title>
+</head>
+
+<body>
+  <header>
+    <h1>Your Website</h1>
+  </header>
+  <nav>
+    <ul>
+      <li class="tab" onclick="openTab('home')">Home</li>
+      <li class="tab" onclick="openTab('about')">About</li>
+      <li class="tab" onclick="openTab('privacy')">Privacy</li>
+      <li id="login" onclick="toggleLogin()">Sign In</li>
+      <li id="logout" style="display: none;" onclick="logout()">Log Out</li>
+    </ul>
+  </nav>
+  <section id="homeTab" class="tab-content">
+    <!-- Home content goes here -->
+    <p>Welcome to our website!</p>
+  </section>
+  <section id="aboutTab" class="tab-content">
+    <!-- About content goes here -->
+    <p>About us...</p>
+  </section>
+  <section id="privacyTab" class="tab-content">
+    <!-- Privacy content goes here -->
+    <p>Privacy information...</p>
+  </section>
+  <footer>
+    <p>&copy; 2023 Your Website. All rights reserved I am tired.</p>
+    <div id="footer-links">
+      <a href="#">About</a>
+      <a href="#">Privacy</a>
+      <!-- Add more links as needed -->
+    </div>
+  </footer>
+  <button id="text-to-speech" onclick="readText()">Text to Speech</button>
+  <script>
+    function readText() {
+      var visibleTabContent = document.querySelector('.tab-content:not([style*="display:none"])');
+      var textToRead = visibleTabContent.querySelector('p').textContent;
+      var utterance = new SpeechSynthesisUtterance(textToRead);
+      window.speechSynthesis.speak(utterance);
+    }
+  </script>
+</body>
+
+</html>

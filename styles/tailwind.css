@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  
+  div.wordViewer {
+    max-width: 1200px;
+    /* background-color: white; */
+    background-color: #FFF3AB;
+    /* border-radius: 8px; */
+    /* border: 1px solid silver; */
+    /* box-shadow: 2px 3px 4px rgba(0,0,0,0.1); */
+    padding: 3rem;
+
+    color: #120C8A;
+    /* width: 2480px; */
+    /* scale: 0.7; */
+  }
+
+  div.wordViewer > * {
+    /* white-space: nowrap; Prevent text wrapping */
+    transition: transform 0.3s ease; /* Smooth scaling animation */
+    padding: 0.3em 1rem;
+    border-radius: 20px;
+  }
+
+  /* div.wordViewer > *:hover {
+    transform: scale(1.2);
+    background-color: inherit;
+    z-index: 2;
+    border: 1px solid #120C8A;
+  } */
+
+  #pdfViewer {
+    margin-inline: auto;
+    z-index: 2;
+  }
+
+  .page {
+    position: relative;
+    border-bottom: 2px solid #333; /* Border between pages */
+    margin-bottom: 20px; /* Adjust as needed */
+    /* border: 1px solid rgb(213, 212, 212); */
+    /* width: 100%; */
+    min-width: 800px;
+    width: 100%;
+    min-height: 950px;
+    /* padding: 7rem; */
+    /* color: #120C8A; */
+    /* background-color: white; */
+    /* background-color: rgb(254 249 195); */
+    /* background-color: red; */
+    border-radius: 6px;
+    background-color: inherit;
+    /* box-shadow: 2px 3px 4px rgba(0,0,0,0.1); */
+    line-height: 50px;
+
+  }
+
+  .page * {
+    scale: 1.3;
+    transform: translateX(10%)
+  }
+
+  .text-item {
+    /* white-space: nowrap; Prevent text wrapping */
+    transition: transform 0.3s ease; /* Smooth scaling animation */
+    /* padding: 0.1rem 0.4rem; */
+    border-radius: 20px;
+  }
+
+  /* .text-item:hover {
+    transform: scale(1.2);
+    background-color: inherit;
+    z-index: 2;
+    border: 1px solid #120C8A;
+  } */
+}
