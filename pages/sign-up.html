@@ -7,7 +7,7 @@
   <script defer src="../scripts/index.js"></script>
   <title>Sign In</title>
   <style>
-    .sign-in-error-message {
+    .sign-up-error-message {
       color: red;
       margin-top: 1rem;
       display: none;
@@ -123,16 +123,19 @@
       <div  class="flex flex-col w-full mx-auto items-stretch max-w-xl pr-4">
         <div class="flex flex-col items-stretch my-auto max-md:max-w-full">
           <div class=" text-sm toggle-inverse whitespace-nowrap justify-center items-center  bg-primary-blue px-16 py-6 border-solid max-md:max-w-full max-md:px-5">
-            <span class="">You successfully Signed Up,</span>
-            <span class="font-bold">Kindly Proceed to Log in</span>
+            <!-- <span class="">You successfully Signed Up,</span> -->
+            <span class="font-bold">Kindly Proceed to Sign Up</span>
           </div>
           <form id="form" class="items-center toggle-inverse bg-primary-blue flex flex-col mt-7 px-20 py-11 border-solid max-md:max-w-full max-md:px-5">
             <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/2d29d07dd456424eed10d8ed7dde74dfa974ecd2289e610fbc19acba04b4857e?apiKey=0ce679486ae447bd8ce08b2cc2263e2e&" class="aspect-square object-contain object-center w-8 overflow-hidden self-center max-w-full mt-3.5" />
             <div class="text-center text-3xl font-bold tracking-tighter self-center whitespace-nowrap mt-6">
-              Sign In
+              Sign Up
             </div>
-            
             <div class="items-stretch self-stretch flex justify-between gap-0 mt-16 max-md:mt-10">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/4599a1a361c7fd87bc4dc0283c0f7f203c4077d238cf46bcbfd2b733e37e1f1c?apiKey=0ce679486ae447bd8ce08b2cc2263e2e&" class="aspect-square object-contain object-center w-14 stroke-[1px] stroke-yellow-200 overflow-hidden shrink-0 max-w-full" />
+              <input type="text" name="username" placeholder="Enter Username" class="bg-transparent text-base font-bold tracking-tight whitespace-nowrap border border-l-0 border-[color:var(--Secondary,#FFF3AB)] grow justify-center outline-none pl-6 pr-16 py-3 border-solid items-start max-md:px-5">
+            </div>
+            <div class="items-stretch self-stretch flex justify-between gap-0 mt-3.5 max-md:mt-10">
               <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/4599a1a361c7fd87bc4dc0283c0f7f203c4077d238cf46bcbfd2b733e37e1f1c?apiKey=0ce679486ae447bd8ce08b2cc2263e2e&" class="aspect-square object-contain object-center w-14 stroke-[1px] stroke-yellow-200 overflow-hidden shrink-0 max-w-full" />
               <input type="email" name="email" placeholder="Enter Email" class="bg-transparent text-base font-bold tracking-tight whitespace-nowrap border border-l-0 border-[color:var(--Secondary,#FFF3AB)] grow justify-center outline-none pl-6 pr-16 py-3 border-solid items-start max-md:px-5">
             </div>
@@ -140,13 +143,13 @@
               <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/4599a1a361c7fd87bc4dc0283c0f7f203c4077d238cf46bcbfd2b733e37e1f1c?apiKey=0ce679486ae447bd8ce08b2cc2263e2e&" class="aspect-square object-contain object-center w-14 stroke-[1px] stroke-yellow-200 overflow-hidden shrink-0 max-w-full" />
               <input type="password" name="password" placeholder="Enter Password" class="bg-transparent text-base font-bold tracking-tight whitespace-nowrap border border-l-0 border-[color:var(--Secondary,#FFF3AB)] grow justify-center outline-none pl-6 pr-16 py-3 border-solid items-start max-md:px-5">
             </div>
-            <div class="sign-in-error-message" id="sign-in-error-message">Error: Failed to sign in. Please try again.</div>
+            <div class="sign-up-error-message" id="sign-up-error-message">Error: Failed to sign in. Please try again.</div>
             <button type="submit" id="confirm-nd-proceed" class="text-violet-950 text-xl font-bold tracking-tight whitespace-nowrap justify-center items-stretch bg-yellow-200 self-center mt-16 px-11 py-4 border-solid max-md:mt-10 max-md:px-5">
               Confirm and Proceed
             </button>
             <div class="text-sm font-bold self-center whitespace-nowrap mt-16 max-md:mt-10">
-              <span>New User?</span>
-              <a href="sign-up.html" class="font-bold">Sign up here</a>
+              <span>Already have an account?</span>
+              <a href="sign-in.html" class="font-bold">Sign in here</a>
             </div>
           </form>
         </div>
@@ -160,18 +163,19 @@
       event.preventDefault(); // Prevent the default form submission
 
       const form = event.target;
-      const errorMessage = document.getElementById('sign-in-error-message');
+      const errorMessage = document.getElementById('sign-up-error-message');
       errorMessage.style.display = "none";
       submitButton.textContent = "loading...";
 
       const formData = new FormData(form);
       const data = {
+        username: formData.get('username'),
         email: formData.get('email'),
         password: formData.get('password'),
       };
 
       try {
-        const response = await fetch('https://reedr-backend.onrender.com/api/auth/signin', {
+        const response = await fetch('https://reedr-backend.onrender.com/api/auth/signup', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -182,11 +186,11 @@
         submitButton.textContent = "Confirm and Proceed";
 
         if (!response.ok) {
-          throw new Error('Failed to sign in');
+          throw new Error('Failed to sign up');
         }
 
         // On success, redirect to /app.html
-        window.location.href = '/pages/app.html';
+        window.location.href = '/pages/sign-in.html';
       } catch (error) {
         // Display error message
         errorMessage.style.display = 'block';
