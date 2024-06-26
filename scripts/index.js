@@ -15,13 +15,13 @@ function toggleSettings() {
   } else {
     settingsModal.style.display = "none";
   }
-}
+};
 
 function changeFont(arg) {
   pdfViewer.style.fontFamily = arg.value;
   fileViewer.style.fontFamily = arg.value;
   console.log(arg.value)
-}
+};
 
 function changeFontSize(arg) {
   pdfViewer.childNodes.forEach(superchild => {
@@ -36,7 +36,7 @@ function changeFontSize(arg) {
       child.style.fontSize = `${arg.value * 14}px`;
     })
   })
-}
+};
 
 let isZoomSelected = false;
 var style = document.createElement('style');
@@ -297,8 +297,8 @@ async function displayPdfContent(arrayBuffer) {
         span.style.position = 'absolute';
         span.style.left = `calc(${textItem.transform[4]}px)`;
         span.style.top = `${viewport.height - textItem.transform[5]}px`; // Adjust the y position
-        span.style.fontSize = `${textItem.height}px`; // Adjust font size based on height
-        // span.style.fontFamily = textItem.fontName
+        span.style.fontSize = `calc(${textItem.height}px - 1px)`; // Adjust font size based on height
+        span.style.fontFamily = textItem.fontName
 
         // Apply font weight
         if (textItem.fontName.includes('Bold')) {
